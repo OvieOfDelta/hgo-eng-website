@@ -31,7 +31,7 @@ CNAME          custom domain for GitHub Pages (HIDDEN FILE - see warning)
 |---|---|
 | Email `info@hgoengresources@gmail.com` | `index.html` (contact, footer, Talk to Sales menu, legal pages) - use find and replace |
 | Calls `0802 277 1016`, `0803 993 9697` | `index.html` (contact, footer, Talk to Sales menu, messages, legal pages) |
-| WhatsApp `2348022771017` | `WA` constant in `js/main.js` (sets every WhatsApp link and the quote hand-off); the visible number is in `index.html` |
+| WhatsApp `2348022771016` | `WA` constant in `js/main.js` (sets every WhatsApp link and the quote hand-off); the visible number is in `index.html` |
 | Web3Forms key | `WEB3FORMS_KEY` in `js/main.js` |
 | Company, CAC `RC-9904336`, office address | `index.html` (about, footer, legal pages) |
 
