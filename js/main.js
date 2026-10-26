@@ -2,7 +2,7 @@
 
 /* ---- Site settings (contact details also appear in index.html; see README) ---- */
 const COMPANY="H.G.O ENG RESOURCES LIMITED";
-const WA="2348022771017";            // WhatsApp number, international format, digits only
+const WA="2348022771016";            // WhatsApp number, international format, digits only
 const TANKER=33000;                 // standard tanker size (litres) used for the auto-calculation
 /* [min, max, step, default, unit, label] */
 const FUEL=[1,5000000,1,33000,"Liters","Estimated Volume (Liters)"];
