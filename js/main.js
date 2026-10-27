@@ -14,7 +14,7 @@ const PRESETS={fuel:[10000,33000,45000,60000,100000],lpg:[500,1000,5000,10000,20
 /* ---- Email delivery via Web3Forms ----
    1. Get a free access key at https://web3forms.com (enter the email that should receive messages).
    2. Paste it below. The key is public by design: it only routes messages to your inbox. */
-const WEB3FORMS_KEY = "PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE";
+const WEB3FORMS_KEY = "62572d49-5b4c-452a-a018-1e1ec70499c0";
 
 const $id=id=>document.getElementById(id);
 
