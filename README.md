@@ -29,7 +29,7 @@ CNAME          custom domain for GitHub Pages (HIDDEN FILE - see warning)
 
 | Detail | Where |
 |---|---|
-| Email `hgoengoilandgas@gmail.com` | `index.html` (contact, footer, Talk to Sales menu, legal pages) - use find and replace |
+| Email `hgoenergyoilandgas@gmail.com` | `index.html` (contact, footer, Talk to Sales menu, legal pages) - use find and replace |
 | Calls `0802 277 1016`, `0803 993 9697` | `index.html` (contact, footer, Talk to Sales menu, messages, legal pages) |
 | WhatsApp `2348022771016` | `WA` constant in `js/main.js` (sets every WhatsApp link and the quote hand-off); the visible number is in `index.html` |
 | Web3Forms key | `WEB3FORMS_KEY` in `js/main.js` |
@@ -52,7 +52,7 @@ Replace a file and keep the SAME name. GitHub Pages caches for a few minutes; ha
 ## Contact and quote forms (email)
 
 Both forms are delivered by Web3Forms; the quote form also opens WhatsApp with the details pre-filled.
-1. Go to https://web3forms.com, enter `hgoengoilandgas@gmail.com`, and copy the access key emailed to you. The key is tied to the address it was created with, so a key made for any earlier email address will keep sending to the old inbox. Always generate a new key for this address.
+1. Go to https://web3forms.com, enter `hgoenergyoilandgas@gmail.com`, and copy the access key emailed to you. The key is tied to the address it was created with, so a key made for any earlier email address will keep sending to the old inbox. Always generate a new key for this address.
 2. Paste it into `WEB3FORMS_KEY` in `js/main.js`.
 3. Publish, send a test from the live site, check the inbox and spam folder.
 
