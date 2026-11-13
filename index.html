@@ -112,8 +112,10 @@
 <section id="logistics" class="sec">
   <div class="wrap split">
     <div>
-      <div class="sec-head" style="margin-bottom:34px"><span class="eyebrow dk">Logistics</span><h2 class="h2">From request to delivery, in four clear steps.</h2><p class="lead">A simple process built around your schedule, with dedicated tankers of 33,000 L, 45,000 L and 60,000 L capacity.</p></div>
-      <ol class="steps">
+      <div class="sec-head" style="margin-bottom:34px"><span class="eyebrow dk">Logistics</span><h2 class="h2">From request to delivery, in four clear steps.</h2><p class="lead">A simple process built around your schedule, with dedicated tankers of 33,000 L, 45,000 L and 60,000 L capacity.</p>
+        <!-- Jump links: shown automatically once the gallery below is switched on -->
+        <nav class="jump" aria-label="Logistics sections" hidden><a href="#logistics-steps">Delivery steps</a><a href="#gallery">Gallery</a></nav></div>
+      <ol class="steps" id="logistics-steps">
 <li class="step rv" style="--d:0.0s"><span class="step-n">01</span><div><h3>Share Requirement</h3><p>Tell us the product, volume and delivery location.</p></div></li>
 <li class="step rv" style="--d:0.08s"><span class="step-n">02</span><div><h3>Confirm Product and Volume</h3><p>We confirm availability, pricing and the right tanker size for your load.</p></div></li>
 <li class="step rv" style="--d:0.16s"><span class="step-n">03</span><div><h3>Schedule Delivery</h3><p>We agree a loading and delivery schedule that fits your operation.</p></div></li>
@@ -124,6 +126,22 @@
       <img src="images/fleet.jpg" alt="An H.G.O ENG RESOURCES tanker truck on the road at dusk, with a refinery in the background" style="object-position:22% center" width="1280" height="720" loading="lazy">
       <figcaption class="photo-cap"><b>33,000L&ndash;60,000L</b> tanker capacity, delivered to your location.</figcaption>
     </figure>
+  </div>
+
+  <!-- Fleet & operations gallery. HIDDEN until real photos are in place:
+       1) replace each images/gallery/*-sm.webp (800 px wide) and *-lg.webp (1600 px wide) with a real photo, same file name
+       2) edit the alt text and data-cap/caption below so they describe the real photo
+       3) delete the word "hidden" from the next line.  Preview any time with  yourdomain/?gallery=preview  -->
+  <div class="wrap gal" id="gallery" aria-labelledby="gal-h">
+    <div class="gal-head rv"><span class="eyebrow dk">Fleet &amp; Operations</span><h3 class="gal-h" id="gal-h">Our fleet and operations</h3><p class="lead">A look at our tankers, depot loading and deliveries. Tap a photo to enlarge it.</p></div>
+    <ul class="gal-grid">
+      <li class="rv" style="--d:0.00s"><button type="button" class="gal-item" data-full="images/gallery/tanker-fleet-01-lg.jpg" data-cap="Fleet: 33,000 L tanker ready for dispatch"><img src="images/gallery/tanker-fleet-01-lg.jpg" alt="A tanker truck parked and ready for dispatch" width="800" height="500" loading="lazy" decoding="async"><span class="gal-cap">Fleet: 33,000 L tanker ready for dispatch</span></button></li>
+      <li class="rv" style="--d:0.08s"><button type="button" class="gal-item" data-full="images/gallery/tanker-fleet-02-lg.jpg" data-cap="Fleet: tanker on the road"><img src="images/gallery/tanker-fleet-02-lg.jpg" alt="A tanker truck travelling on a highway" width="800" height="500" loading="lazy" decoding="async"><span class="gal-cap">Fleet: tanker on the road</span></button></li>
+      <li class="rv" style="--d:0.16s"><button type="button" class="gal-item" data-full="images/gallery/depot-loading-01-lg.jpg" data-cap="Depot: tanker at the loading bay"><img src="images/gallery/depot-loading-01-lg.jpg" alt="A tanker truck at a depot loading bay" width="800" height="500" loading="lazy" decoding="async"><span class="gal-cap">Depot: tanker at the loading bay</span></button></li>
+      <li class="rv" style="--d:0.00s"><button type="button" class="gal-item" data-full="images/gallery/depot-loading-02-sm.jpg" data-cap="Depot: safety checks before loading"><img src="images/gallery/depot-loading-02-sm.jpg" alt="Depot staff in safety gear checking a tanker before loading" width="800" height="500" loading="lazy" decoding="async"><span class="gal-cap">Depot: safety checks before loading</span></button></li>
+      <li class="rv" style="--d:0.08s"><button type="button" class="gal-item" data-full="images/gallery/lpg-storage-01-lg.jpg" data-cap="LPG: storage and cylinder handling"><img src="images/gallery/lpg-storage-01-lg.jpg" alt="LPG storage tanks or cylinders at a storage site" width="800" height="500" loading="lazy" decoding="async"><span class="gal-cap">LPG: storage and cylinder handling</span></button></li>
+      <li class="rv" style="--d:0.16s"><button type="button" class="gal-item" data-full="images/gallery/delivery-offload-01-lg.jpg" data-cap="Delivery: product offloaded at the customer's site"><img src="images/gallery/delivery-offload-01-lg.jpg" alt="A tanker offloading product at a customer's site" width="800" height="500" loading="lazy" decoding="async"><span class="gal-cap">Delivery: product offloaded at the customer's site</span></button></li>
+    </ul>
   </div>
 </section>
 
@@ -320,6 +338,20 @@
 </div>
 
 <!-- ============ Cookie Preferences Dialog ============ -->
+<div id="gal-lightbox" class="lg-overlay" hidden>
+  <div class="lg-panel gal-panel" role="dialog" aria-modal="true" aria-labelledby="gal-lb-title" tabindex="-1">
+    <div class="lg-head"><h2 id="gal-lb-title">Fleet &amp; Operations<span id="gal-count" aria-live="polite"></span></h2><button type="button" class="lg-close" data-close aria-label="Close">&times;</button></div>
+    <figure class="gal-stage">
+      <div class="gal-imgwrap">
+        <button type="button" class="gal-nav gal-prev" id="gal-prev" aria-label="Previous photo">&#8249;</button>
+        <img id="gal-img" alt="" decoding="async">
+        <button type="button" class="gal-nav gal-next" id="gal-next" aria-label="Next photo">&#8250;</button>
+      </div>
+      <figcaption id="gal-lb-cap"></figcaption>
+    </figure>
+  </div>
+</div>
+
 <div id="cookie-prefs" class="lg-overlay" hidden>
   <div class="lg-panel lg-panel-sm" role="dialog" aria-modal="true" aria-labelledby="cookie-prefs-title" tabindex="-1">
     <div class="lg-head"><h2 id="cookie-prefs-title">Cookie Settings</h2><button type="button" class="lg-close" data-close aria-label="Close">&times;</button></div>

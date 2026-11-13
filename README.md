@@ -7,6 +7,7 @@ index.html     page markup, legal dialogs, cookie banner, forms
 css/style.css  all styles (hand-written; colours and spacing are variables at the top)
 js/main.js     site settings, quote estimator, Web3Forms sending, Talk to Sales control, cookie consent
 images/        logo, hero video + poster, section photos, favicons (see table)
+images/gallery/  Fleet & operations gallery photos (placeholders until real photos arrive)
 assets/fonts/  Manrope + Sora (open-source, SIL OFL licences included), self-hosted
 favicon.ico    browser-tab icon
 CNAME          custom domain for GitHub Pages (HIDDEN FILE - see warning)
@@ -42,12 +43,34 @@ CNAME          custom domain for GitHub Pages (HIDDEN FILE - see warning)
 | `hero-loop.mp4` + `hero-loop.webm` | Hero background loop (muted, silent, 5 s, seamless loop). Skipped for visitors with reduced-motion or Data Saver on. Source clip is 720p; a 1080p source would look sharper. Keep both files in step. |
 | `hero-bg.jpg` | Hero poster and fallback while the video loads (a frame of the clip) |
 | `fleet.jpg`, `drive.jpg` | Logistics photo and final call-to-action background (frames of the clip) |
+| `gallery/*-sm.webp`, `gallery/*-lg.webp` | Fleet & operations gallery: small version in the grid, large version in the viewer (placeholders, see the gallery section) |
 | `lpg.jpg` | LPG feature section (illustration, see above) |
 | `logo.png` | Header and footer logo (transparent PNG). The product bar now reads PMS, AGO, DPK, LPG, ATK. It was repainted from the original JPEG; ask the designer for a vector original for best quality. |
 | `ceo.jpg` | About section leader photo (square, about 400x400) |
 | `favicon-*.png`, `apple-touch-icon.png`, `favicon.ico` | Tab and phone icons |
 
 Replace a file and keep the SAME name. GitHub Pages caches for a few minutes; hard-refresh to see changes. To re-encode a video: `ffmpeg -i in.mp4 -an -c:v libx264 -crf 28 -pix_fmt yuv420p -movflags +faststart hero-loop.mp4`.
+
+## Fleet & operations gallery (Logistics section)
+
+A 6-photo grid sits under the four delivery steps in the Logistics section. Tapping a photo opens a viewer (previous/next buttons, left/right arrow keys, swipe on phones, Esc or a tap outside to close).
+
+**It is HIDDEN until you switch it on**, because it currently holds "PHOTO COMING SOON" placeholders. To preview it: add `?gallery=preview` to the address (e.g. `www.example.com/?gallery=preview`).
+
+To publish it with real photos:
+1. Prepare each photo twice, landscape, as WebP: a small one about 800 px wide (aim for 50-80 KB) and a large one about 1600 px wide (aim for 150-250 KB).
+2. Put them in `images/gallery/`, replacing the placeholders and keeping the SAME names: `tanker-fleet-01`, `tanker-fleet-02`, `depot-loading-01`, `depot-loading-02`, `lpg-storage-01`, `delivery-offload-01`, each with a `-sm.webp` and a `-lg.webp` version.
+3. In `index.html`, find `id="gallery"` and, for each photo, edit the `alt` text, the caption text and the `data-cap` value so they describe the real photo. Only state what the photo shows.
+4. Delete the word `hidden` from the `<div class="wrap gal" id="gallery" ... hidden>` line.
+5. Publish and check on a phone.
+
+The "Delivery steps / Gallery" jump links at the top of the Logistics section appear automatically when the gallery is visible, so there is nothing extra to switch on.
+
+To add a seventh photo or more, copy one `<li class="rv">...</li>` line and change its file names and text (6 or 9 photos keep the grid tidy). The viewer picks new photos up automatically.
+
+Photo tips: ask the depot manager before photographing at a depot or loading bay; avoid clear licence plates, customer logos and identifiable faces unless the person agrees; show safety gear where people appear.
+
+The photo beside the delivery steps (`images/fleet.jpg`) is still a frame from the hero video. When you have a strong real tanker photo, replace `fleet.jpg` with it (keep the name, about 1280x720) so the section does not mix a video still with real photos.
 
 ## Contact and quote forms (email)
 
@@ -77,6 +100,7 @@ One floating button (bottom right) opens a small menu: WhatsApp, two call number
 
 - [ ] Retention period filled; `CNAME` edited
 - [ ] Real C.E.O. photo, LPG photos (and ideally a 1080p hero clip) in place
+- [ ] Gallery: real photos in `images/gallery/`, captions edited, `hidden` removed (or left hidden if not ready); `fleet.jpg` replaced with a real tanker photo
 - [ ] Web3Forms key pasted; live test received from BOTH forms
 - [ ] WhatsApp and both call numbers tested on a phone
 - [ ] Cookie banner (Accept All, Essential Only, Cookie Settings) and footer link work; legal dialogs open
