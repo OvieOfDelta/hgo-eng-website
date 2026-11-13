@@ -250,6 +250,42 @@ selectCategory("pms");
     }
   });
 
+  /* ---------- logistics gallery: photo viewer ---------- */
+  var gal = $("#gal-lightbox"), galItems = $$(".gal-item"), galCur = 0;
+  if (/[?&]gallery=preview(&|$)/.test(location.search)) {
+    var galBox = $("#gallery"); if (galBox) galBox.hidden = false;   // preview while the gallery is still hidden
+  }
+  var galWrap = $("#gallery"), galJump = $("#logistics .jump");
+  if (galWrap && galJump && !galWrap.hidden) galJump.hidden = false;   // jump links only appear when the gallery is visible
+  if (gal && galItems.length) {
+    var gImg = $("#gal-img"), gCap = $("#gal-lb-cap"), gCount = $("#gal-count");
+    var galShow = function (i) {
+      galCur = (i + galItems.length) % galItems.length;
+      var b = galItems[galCur], im = $("img", b);
+      gImg.src = b.getAttribute("data-full");
+      gImg.alt = im ? im.alt : "";
+      gCap.textContent = b.getAttribute("data-cap") || "";
+      gCount.textContent = (galCur + 1) + " / " + galItems.length;
+    };
+    galItems.forEach(function (b, i) {
+      b.addEventListener("click", function () { galShow(i); openDialog(gal); });
+    });
+    $("#gal-prev").addEventListener("click", function () { galShow(galCur - 1); });
+    $("#gal-next").addEventListener("click", function () { galShow(galCur + 1); });
+    d.addEventListener("keydown", function (e) {
+      if (gal.hidden) return;
+      if (e.key === "ArrowLeft") { galShow(galCur - 1); }
+      else if (e.key === "ArrowRight") { galShow(galCur + 1); }
+    });
+    var galX = null, galStage = $(".gal-stage", gal);
+    galStage.addEventListener("touchstart", function (e) { galX = e.touches[0].clientX; }, { passive: true });
+    galStage.addEventListener("touchend", function (e) {
+      if (galX === null) return;
+      var dx = e.changedTouches[0].clientX - galX; galX = null;
+      if (Math.abs(dx) > 50) galShow(galCur + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+  }
+
   /* ---------- init ---------- */
   var existing = readConsent();
   if (existing) applyConsent(existing); else showBanner();
